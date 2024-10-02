@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15.6
+    ports:
+      - "5433:5432"
+    volumes:
+      - ${PWD}/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=taskManagement
+
+
+volumes:
+  postgres_data:
