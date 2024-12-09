@@ -5,14 +5,12 @@ import (
 	"fmt"
 	"log"
 	"os"
-
+	"github.com/arafat1802/Task-Management-System/models"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
-const ()
-
-func main() {
+func ConnectDB() {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatalf("error loading .env file: %v", err)
@@ -40,9 +38,19 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println("Successfully connected!")
-	fmt.Println("DB_HOST:", host)
-	fmt.Println("DB_USER:", port)
-	fmt.Println("DB_PASS:", password)
-	fmt.Println("DB_PASS:", dbname)
+	// createTableSQL := `
+	// 	CREATE TABLE IF NOT EXISTS "users" (
+	// 		id SERIAL PRIMARY KEY,
+	// 		username VARCHAR(50) NOT NULL,
+	// 		email VARCHAR(100) NOT NULL UNIQUE,
+	// 		password VARCHAR(100) NOT NULL,
+	// 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	// 	);`
+
+	_, err = db.Exec(models.createTableSQL)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Table user created successfully!")
 }
