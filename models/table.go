@@ -1,6 +1,6 @@
 package models
 
-var createTableSQL = `
+var CreateTableSQL = `
     CREATE TABLE IF NOT EXISTS "users" (
         id SERIAL PRIMARY KEY,
         username VARCHAR(50) NOT NULL,
