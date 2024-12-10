@@ -1,11 +1,7 @@
 package main
 
-import (
-	"example.com/movie-app/db"
-	"example.com/movie-app/router"
-)
+import "github.com/arafat1802/Task-Management-System/config"
 
 func main() {
-	db.InitPostgresDB()
-	router.InitRouter().Run()
+	config.ConnectDB()
 }
