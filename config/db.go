@@ -46,7 +46,7 @@ func ConnectDB() {
 	// 		password VARCHAR(100) NOT NULL,
 	// 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	// 	);`
-
+	
 	_, err = db.Exec(models.createTableSQL)
 	if err != nil {
 		panic(err)
