@@ -1,6 +1,5 @@
 package models
 
-// Define the SQL statement as a variable
 var createTableSQL = `
     CREATE TABLE IF NOT EXISTS "users" (
         id SERIAL PRIMARY KEY,
