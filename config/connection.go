@@ -6,12 +6,11 @@ import (
 	"log"
 	"os"
 
-	//"github.com/arafat1802/Task-Management-System/models"
 	"github.com/arafat1802/Task-Management-System/models"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
-
+var DB *sql.DB
 func ConnectDB() {
 	err := godotenv.Load()
 	if err != nil {
@@ -30,11 +29,11 @@ func ConnectDB() {
 		host, port, user, password, dbname)
 
 	db, err := sql.Open("postgres", psqlInfo)
+	DB = db
 
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
 	err = db.Ping()
 	if err != nil {
 		panic(err)

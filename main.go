@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
-	//models.PrintHello()
 	config.ConnectDB()
+	r := routes.SetupRouter()
+	r.Run(":8080")
 }
