@@ -10,7 +10,9 @@ import (
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
+
 var DB *sql.DB
+
 func ConnectDB() {
 	err := godotenv.Load()
 	if err != nil {
