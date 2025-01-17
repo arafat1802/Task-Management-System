@@ -7,7 +7,7 @@ import (
 
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
-
+	r.GET("/", controllers.HelloWorld)
 	r.GET("/users", controllers.GetUsers)
 	r.POST("/createUser", controllers.CreateUser)
 

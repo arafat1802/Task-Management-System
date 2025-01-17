@@ -11,6 +11,9 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+func HelloWorld(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"message": "Hello World!!"})
+}
 func GetUsers(c *gin.Context) {
 	// Call the GetUsers function from models to retrieve all users
 	users, err := models.GetUsers(config.DB)
