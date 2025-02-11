@@ -1,9 +1,11 @@
 package models
 
+
 import (
 	"database/sql"
 	"log"
 )
+
 
 // User represents a user in the system
 type User struct {
